@@ -11,6 +11,10 @@ from amino_acids import aa, codons, aa_table
 import random
 from load import load_seq
 
+
+
+
+
 def shuffle_string(s):
     """ Shuffles the characters in the input string
         NOTE: this is a helper function, you do not have to modify this in any way """
@@ -159,21 +163,8 @@ def find_all_ORFs_oneframe(dna):
 
 
         
-   # for i in range((len(dna))/3): #length of dna/3 is how many codons - makes it so there are as many iterations through loops as there are codons
-     #   codon_first = i*3 #every multiple of 3 is the start of a codon
-     #   codon_last = i*3+3 #add three to get the third entry of codon - (originally expected +2 but that only returned 2 letters for a codon??)
-      #  codon = dna[codon_first:codon_last] 
-      #  print codon
-      #  if codon == start_codon:
-          #  if codon == stop_codon:
-          #      return
-          #  else:
-             #   ORF = ORF + codon #next codon is added to string if it is not an end codon
-              #  ORFS_oneframe = ORFS_oneframe + [ORF]
     
-    return ORFS_oneframe 
 
-#how
 pass
 
 def find_all_ORFs(dna):
@@ -226,8 +217,7 @@ def find_all_ORFs_both_strands(dna):
     all_ORFS_Both.append(strand2ORFS)
 
     return all_ORFS_Both
-
-
+    #returns list of strings
 
 
 
@@ -238,20 +228,9 @@ def longest_ORF(dna):
     'ATGCTACATTCGCAT'
     """
     # TODO: implement this
-    while i <len(dna):
-        ORFS = find_all_ORFs_both_strands(dna)
-
-        dna2 = get_reverse_complement(dna)
-        all_ORFS_Both = []
-        for i in range(0, len(dna), 3):
-            strand1ORFS = find_all_ORFs(dna)
-            strand2ORFS = find_all_ORFs(dna2)
-            all_ORFS_Both = all_ORFS_Both + [strand1ORFS] + [strand2ORFS]
-        return all_ORFS_Both
-
-
-
-
+    ORFS = find_all_ORFs_both_strands(dna)
+    return max(ORFS, key=len)
+   
     pass
 
 
@@ -263,6 +242,16 @@ def longest_ORF_noncoding(dna, num_trials):
         num_trials: the number of random shuffles
         returns: the maximum length longest ORF """
     # TODO: implement this
+    maxlen = len(longest_ORF(dna))
+    
+    for i in range(num_trials):
+        strand = "".join(random.sample(strand, len(strand)))
+        if len(longest_ORF(dna)) > maxlen:
+            maxlen = len(longest_ORF(dna))
+   
+    return maxlen
+
+
     pass
 
 def coding_strand_to_AA(dna):
@@ -280,6 +269,14 @@ def coding_strand_to_AA(dna):
         'MPA'
     """
     # TODO: implement this
+    a_acids = "" #string!
+    codons = [] #list!
+
+    for i in range(0, len(dna) -2, 3):
+        codons.append(dna[i:i+3])
+    a_acids = "".join(aa_table[i] for i in codons)
+    return a_acids
+
     pass
 
 def gene_finder(dna, threshold):
@@ -293,7 +290,18 @@ def gene_finder(dna, threshold):
                  length specified.
     """
     # TODO: implement this
+
+    return [coding_strand_to_AA(i) for i in find_all_ORFs_both_strands(dna) if len(i) >= threshold]
+#    for i in find_all_ORFs_both_strands(dna)
+ #       if len(i) >= threshold
+  #      amino_acid_sequences = coding_strand_to_AA(i)
+   #     return amino_acid_sequences
     pass
+
+
+dna = load_seq("./data/X73525.fa")
+print gene_finder(dna, 1500)
+
 
 if __name__ == "__main__":
     import doctest
