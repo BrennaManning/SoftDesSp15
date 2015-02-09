@@ -1,0 +1,6 @@
+
+type III secretion system protein SpaS [Salmonella enterica] 
+
+An important virulence factor of Salmonella spp. is their ability to gain access to host cells. A type III secretion system encoded in the inv and spa loci of these organisms is essential for this phenotype. We have identified two proteins, SipA and SipD, whose secretion from the bacterial cells is dependent on this system. 
+	- http://jb.asm.org/content/177/24/7078.abstract
+
