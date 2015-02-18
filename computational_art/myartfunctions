@@ -17,3 +17,13 @@ green:
 blue:
 ['sin_pi', ['avg', ['prod', ['prod', ['cos_pi', ['x']], ['prod', ['x'], ['x']]], ['avg', ['cos_pi', ['x']], ['prod', ['y'], ['x']]]], ['prod', ['sin_pi', ['avg', ['x'], ['x']]], ['prod', ['prod', ['y'], ['y']], ['avg', ['y'], ['x']]]]]]
 
+
+myart32
+
+red:
+['avg', ['prod', ['cos_pi', ['avg', ['prod', ['cos_pi', ['x']], ['prod', ['x'], ['x']]], ['cos_pi', ['avg', ['x'], ['y']]]]], ['sin_pi', ['avg', ['sin_pi', ['avg', ['y'], ['y']]], ['sin_pi', ['prod', ['x'], ['y']]]]]], ['avg', ['avg', ['prod', ['cos_pi', ['avg', ['x'], ['y']]], ['sin_pi', ['avg', ['x'], ['x']]]], ['prod', ['prod', ['avg', ['y'], ['y']], ['sin_pi', ['x']]], ['cos_pi', ['sin_pi', ['y']]]]], ['prod', ['prod', ['cos_pi', ['sin_pi', ['y']]], ['sin_pi', ['cos_pi', ['x']]]], ['prod', ['avg', ['cos_pi', ['y']], ['avg', ['y'], ['x']]], ['cos_pi', ['cos_pi', ['x']]]]]]]
+green:
+['avg', ['cos_pi', ['cos_pi', ['sin_pi', ['sin_pi', ['cos_pi', ['y']]]]]], ['sin_pi', ['avg', ['sin_pi', ['cos_pi', ['prod', ['y'], ['y']]]], ['sin_pi', ['sin_pi', ['prod', ['x'], ['y']]]]]]]
+blue:
+['sin_pi', ['prod', ['prod', ['avg', ['prod', ['avg', ['x'], ['y']], ['cos_pi', ['x']]], ['cos_pi', ['avg', ['x'], ['y']]]], ['sin_pi', ['prod', ['sin_pi', ['y']], ['sin_pi', ['y']]]]], ['avg', ['cos_pi', ['sin_pi', ['cos_pi', ['x']]]], ['prod', ['cos_pi', ['avg', ['x'], ['x']]], ['avg', ['avg', ['y'], ['y']], ['cos_pi', ['y']]]]]]]
+
