@@ -44,29 +44,6 @@ def build_random_function(min_depth, max_depth):
         return [function_dictionary[number], build_random_function(depth-1,depth-1)]
     if number in range(5,6):
         return [function_dictionary[number], build_random_function(depth-1,depth-1), build_random_function(depth-1, depth-1)]
-    
-    #functions = function.append(function_dictionary[randint(0,7)])
-    #number = number-1
-
-#print build_random_function(7,9)
-
-    #andom_function = []
-
-
-
-
-   #functions = {[[a*b], [0.5*(a+b)], [math.cos(math.pi*a)], [math.sin(math.pi*a)], [a],[b]])
-    
-    
-    #prod(a,b) = a*b
-    #avg(a,b) = 0.5*(a+b)
-    #cos_pi(a) = math.cos(math.pi*a)
-    #sin_pi(a) = math.sin(pi*a)
-    #x(a,b) = a
-    #y(a,b) = b
-    
-    
-
 
 
 def evaluate_random_function(f, x, y):
@@ -85,8 +62,6 @@ def evaluate_random_function(f, x, y):
     """
  
 
-
-
     if f[0] == "x":
         return x
     elif f[0] == "y":
@@ -104,12 +79,6 @@ def evaluate_random_function(f, x, y):
     elif f[0] == "divide":
         return (evaluate_random_function(f[1]))/(evaluate_random_function(f[2]))
         
-   
-    #avg(a,b) = 0.5*(a+b)
-    #cos_pi(a) = math.cos(math.pi*a)
-   # sin_pi(a) = math.sin(pi*a)
-    #x(a,b) = a
-    #y(a,b) = b
 
     pass
 
@@ -137,10 +106,6 @@ def remap_interval(val, input_interval_start, input_interval_end, output_interva
         >>> remap_interval(5, 4, 6, 1, 2)
         1.5
     """
-    # TODO: implement this
-
-    #output = ( ( val - input_interval_start) / (input_interval_end - input_interval_start) ) * (output_interval_end - output_interval_start) + output_interval_start
-    
     input_range = input_interval_end - input_interval_start
     output_range = output_interval_end - output_interval_start
 
@@ -150,12 +115,8 @@ def remap_interval(val, input_interval_start, input_interval_end, output_interva
     # Convert the 0-1 range into a value in the right range.
     output = output_interval_start + (scaled * output_range)
 
-
-
     return output
     pass
-
-
 
 
 def color_map(val):
@@ -246,10 +207,7 @@ if __name__ == '__main__':
     doctest.testmod()
 
     # Create some computational art!
-    # TODO: Un-comment the generate_art function call after you
-    #       implement remap_interval and evaluate_random_function
+    
     generate_art("myart.png")
     
-    # Test that PIL is installed correctly
-    # TODO: Comment or remove this function call after testing PIL install
-    #test_image("noise.png")
+    
