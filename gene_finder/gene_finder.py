@@ -36,22 +36,24 @@ def get_complement(nucleotide):
     'G'
         """
     #complements = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
-    #new_sequence.append(complements[nucleotide])
+    #new_sequence.append(complements[nucleotide])  <--Delete test code, keep final code turn in clean
 
     if nucleotide == 'A':
-        n_complement = 'T'
+        #n_complement = 'T'
+        return "T" #etc, return as early as you can. This saves computation time with larger projects
     elif nucleotide == 'T':
         n_complement ='A'
     elif nucleotide == 'C':
         n_complement = 'G'
     elif nucleotide == 'G':
         n_complement = 'C'
+    else:
+        return "Nucleotide not found" #error catching is a good practice to get in to
+    #return n_complement
 
-    return n_complement
 
 
-
-    # TODO: implement this
+    # TODO: implement this <--Delete stuff like this too
 
 def get_reverse_complement(dna):
     """ Computes the reverse complementary sequence of DNA for the specfied DNA
@@ -87,8 +89,10 @@ def rest_of_ORF(dna):
     """
     # TODO: implement this
 
-    #stop_codons = ['TAG','TAA','TGA']
-    #odon = orf[i:i+3] ????????????
+    """
+    Nice use of commenting your code. However, all the test stuff you did from before is still here
+    and is cluttering the readability of stuff here. Delete in future.
+    """
 
     ORF = '' # it's a string
 
@@ -105,14 +109,6 @@ def rest_of_ORF(dna):
         i += 3
             #ORF = ORF + codon #next codon is added to string if it is not an end codon
     return dna
-
-
-        #if codon_first_char == 'T' and codon_mid_char == 'A' and codon_last_char == 'G' or 'A':
-        #    break
-        #elif codon_first_char == 'T' and codon_mid_char == 'G' and codon_last_char == 'A':
-        #    break
-        #else
-        #????
 
 def find_all_ORFs_oneframe(dna):
     """ Finds all non-nested open reading frames in the given DNA sequence and returns
@@ -166,10 +162,7 @@ def find_all_ORFs(dna):
     # TODO: implement this
     all_ORFS = []
 
-    # All_Frames_ORFs = collapse(find_all_ORFs_oneframe(dna[0:2]))
-   #frame1ORFS = collapse(find_all_ORFs_oneframe(dna))
-    #frame2ORFS = collapse(find_all_ORFs_oneframe(dna[1:]))#start with 2nd character in string
-    #frame3ORFS = collapse(find_all_ORFs_oneframe(dna[2:]))#start with 3rd character in string
+
 
     for i in range(3):
         current_frame = dna[i:]
@@ -177,14 +170,8 @@ def find_all_ORFs(dna):
         if len(All_Frames_ORFs) > 1:
         #     print "appending to all_orfs"
             all_ORFS.extend(All_Frames_ORFs)
-   #all_ORFS.append(frame1ORFS)
-    #all_ORFS.append(frame2ORFS)
-    #all_ORFS.append(frame3ORFS)
+
     return all_ORFS
-
-
-
-
 
 def find_all_ORFs_both_strands(dna):
     """ Finds all non-nested open reading frames in the given DNA sequence on both
@@ -273,36 +260,22 @@ def coding_strand_to_AA(dna):
     a_acids = "".join(aa_table[i] for i in codons)
     return a_acids
 
+"""These merge conflicts MUST be resolved when committing final code. This script will not run
+because of this. Simply delete parts of the merge conflict that you don't want."""
 
-<<<<<<< HEAD
 def gene_finder(dna, threshold):
     """ Returns the amino acid sequences coded by all genes that have an ORF
         larger than the specified threshold.
-
-=======
-def gene_finder(dna):
-    """ Returns the amino acid sequences that are likely coded by the specified dna
-        
->>>>>>> 922a6e32441860ab0413630f74531e6e47a16a7c
         dna: a DNA sequence
         returns: a list of all amino acid sequences coded by the sequence dna.
     """
     # TODO: implement this
 
     return [coding_strand_to_AA(i) for i in find_all_ORFs_both_strands(dna) if len(i) >= threshold]
-#    for i in find_all_ORFs_both_strands(dna)
- #       if len(i) >= threshold
-  #      amino_acid_sequences = coding_strand_to_AA(i)
-   #     return amino_acid_sequences
 
-
-
-dna = load_seq("./data/X73525.fa")
-threshold = longest_ORF_noncoding(dna, 1500)
-print threshold
-amino_acids =  gene_finder(dna, threshold)
-print amino_acids
-
-# if __name__ == "__main__":
-#     import doctest
-#     doctest.testmod()
+if __name__ == "__main__":
+#These should all be under if __name__ == "__main__":"
+    dna = load_seq("./data/X73525.fa")
+    threshold = longest_ORF_noncoding(dna, 1500)
+    amino_acids =  gene_finder(dna, threshold)
+    print amino_acids
