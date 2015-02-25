@@ -2,6 +2,8 @@
 Created on Mon Feb 09 7:39:58 2015
 
 @author: Brenna Manning
+
+Good, but next time have a more informative header comment.
  """
 
 import random
@@ -22,23 +24,16 @@ def build_random_function(min_depth, max_depth):
                  these functions)
     """
     function_dictionary = {0:"prod", 1:"avg", 2:"cos_pi", 3:"sin_pi", 4: "square", 5: "divide", 6: "x", 7: "y"}
-
-    functions = []
-    function = []
-
-    
-    
+    functions = [] #Delete unncessary white space, makes code more readable
+    function = [] #Have easily differentiable variable names
     if min_depth == max_depth:
         depth = min_depth
     else:
         depth = randint(min_depth, max_depth)
-    
     if depth == 1:
         return [function_dictionary[randint(6,7)]]
-       
-    
     number =randint(0,3)
-    if number in range (0,2):
+    if number in range (0,2): #instead of using all these ifs, use elifs to show they are connected to the same logic
         return [function_dictionary[number], build_random_function(depth-1,depth-1), build_random_function(depth-1, depth-1)]
     if number in range (2,5):
         return [function_dictionary[number], build_random_function(depth-1,depth-1)]
@@ -60,13 +55,11 @@ def evaluate_random_function(f, x, y):
         >>> evaluate_random_function(["y"],0.1,0.02)
         0.02
     """
- 
-
-    if f[0] == "x":
+     if f[0] == "x":
         return x
     elif f[0] == "y":
         return y
-    elif f[0] == "prod":    #f = ["prod",["sin_pi",["x"]],["cos_pi",["x"]]]
+    elif f[0] == "prod": 
         return evaluate_random_function(f[1], x, y) * evaluate_random_function(f[2], x, y)
     elif f[0] == "avg":
         return 0.5 * (evaluate_random_function(f[1], x, y) + evaluate_random_function(f[2], x, y))
@@ -77,10 +70,9 @@ def evaluate_random_function(f, x, y):
     elif f[0] == "square":
         return ((evaluate_random_function(f[1], x, y))**2)
     elif f[0] == "divide":
-        return (evaluate_random_function(f[1]))/(evaluate_random_function(f[2]))
-        
-
-    pass
+        return (evaluate_random_function(f[1]))./(evaluate_random_function(f[2])) #make sure to float division, unless
+                                                                                  #you were going for round nums only
+    pass # <-- Delete this
 
 
 def remap_interval(val, input_interval_start, input_interval_end, output_interval_start, output_interval_end):
@@ -109,15 +101,13 @@ def remap_interval(val, input_interval_start, input_interval_end, output_interva
     input_range = input_interval_end - input_interval_start
     output_range = output_interval_end - output_interval_start
 
-    # Convert the left range into a 0-1 range (float)
-    scaled = float(val - input_interval_start) / float(input_range)
+    # Convert the left range into a 0-1 range (float) #nice use of comments
+    #scaled = float(val - input_interval_start) / float(input_range)
+    scaled = (val - input_interval_start) ./ (input_range) #works too
 
     # Convert the 0-1 range into a value in the right range.
     output = output_interval_start + (scaled * output_range)
-
     return output
-    pass
-
 
 def color_map(val):
     """ Maps input value between -1 and 1 to an integer 0-255, suitable for
@@ -189,7 +179,7 @@ def generate_art(filename, x_size=350, y_size=350):
                     )
 
     im.save(filename)
-    print "Yay! You made art! :D"
+    print "Yay! You made art! :D" #Awww thanks <3
     print "You can find your artwork in Home/SoftDes/SoftDesSp15/computational_art"
   # print " "
     print "red:" 
@@ -207,7 +197,6 @@ if __name__ == '__main__':
     doctest.testmod()
 
     # Create some computational art!
-    
     generate_art("myart.png")
     
     
