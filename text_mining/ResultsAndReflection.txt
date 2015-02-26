@@ -1,0 +1,33 @@
+﻿Brenna Manning
+February 25, 2015
+Software Design 
+Mini-Project 3: Text Mining & Analysis
+
+Project Overview
+	I used plays taken from Project Gutenberg on the web and from pattern used sentiment analysis to analyze the content of text. I chose plays because whenever  a character is speaking, that character's line begins with their name followed by a punctuation mark. So I was able to see what the sentiment was of each character's lines when they spoke. Additionally, I analyzed the sentiment of lines containing each character's name to see what the general sentiment towards that character is.
+
+Implementation
+
+	The first part of my implementation processes text files (in the case of my project, plays found on Project Gutenberg) and splits the text up into individual lines.  For each line of text in the play, if the line begins with the indication that a character has a line, it analyzes the sentiment of that line and attributes that sentiment level to the character who was speaking. This is done for each character, and the sentiment of all of the lines that each character has.  The result of this is a value between -1 and 1 for each character representing the overall sentiment of all of that character's lines. 
+	The second part of my implementation is very similar to the first; however, instead of analyzing the sentiment of all of the lines in which each character speaks, it analyzes the sentiment of all the lines that each character is mentioned. The result of this is also a value between -1 and 1 for each character, but this value represents the overall sentiment towards that character when other characters are speaking. This is interesting because we can compare these results to the results of the function that finds the sentiment each character has when speaking.  For both of these sentiment analysis functions, I chose to use for loops and append the sentiment values to a list. I did this so that it could be more easily used as inputs to create the bar graphs. 
+	Finally, the last part of my implementation is the function to create bar graphs from the data gathered previously. This uses the earlier functions to create bar graphs of both the sentiment of and towards each character in a play given a .txt file, a list of characters, and whether it needs to make a graph of sentiment of the characters' lines or of the lines about the characters. 
+
+
+Results
+	I analyzed the sentiment of characters in Hamlet by William Shakespeare and in  The Importance of Being Earnest by Oscar Wilde. In doing this, I got some interesting results:
+
+
+
+
+
+In analyzing the sentiment both of each character in their own lines, and of lines mentioning each character in the play Hamlet, we can see that Hamlet's mother Gertrude's lines actually carry by far the most negative sentiment. Interestingly enough, lines spoken about Gertrude actually have the most positive sentiment.   Guildenstern's lines have the most positive sentiment throughout the play, but lines about Guildenstern have about the same sentiment as lines about Rosencrantz. This is likely because throughout the play Rosencrantz and Guildenstern are usually talked about together. This kind of analysis can give us a greater insight into the characters of the play, and it is interesting to see how these character traits are seen in the storyline.
+
+The other play whose characters I analyzed was The Importance of Being Earnest by Oscar Wilde:
+
+
+	One of the most interesting things about the graphs about the characters in The Importance of Being Earnest, is that they are very similar to each other. The characters whose own lines have a more negative or positive sentiment are spoken about by other characters with similar sentiment.  This also makes sense in the context of the script. Because the characters each interact with each other so often, when characters speak positively or negatively, in this play it heavily influences the way other characters perceive them and therefore how they talk about them.
+
+
+Reflection
+	
+	I think this project went fairly well. Though I did not implement all the skills I learned from this project in this final version, I learned a lot about how to go about getting text from various sources on the web, and ways to analyze that text to get meaningful information.  I found the information gathered from sentiment analysis of text particularly interesting. In the future, if I were to pursue a similar project I would want to take it a little bit further. One of the difficulties I had with this project was figuring out the proper scope. I was uncertain of how far I should be going in terms of analyzing the data I was getting from the text.
