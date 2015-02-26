@@ -6,7 +6,6 @@ from random import choice
 
 def add_note(out, instr, key_num, duration, bpm, volume):
     """ Adds a note from the given instrument to the specified stream
-
         out: the stream to add the note to
         instr: the instrument that should play the note
         key_num: the piano key number (A 440Hzz is 49)
@@ -14,6 +13,7 @@ def add_note(out, instr, key_num, duration, bpm, volume):
         bpm: the tempo of the music
         volume: the volume of the note
 	"""
+
     freq = (2.0**(1/12.0))**(key_num-49)*440.0
     stream = instr.play(duration*(60.0/bpm),freq)
     stream *= volume
