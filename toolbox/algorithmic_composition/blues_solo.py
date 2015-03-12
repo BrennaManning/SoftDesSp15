@@ -13,7 +13,7 @@ def add_note(out, instr, key_num, duration, bpm, volume):
         bpm: the tempo of the music
         volume: the volume of the note
 	"""
-
+    
     freq = (2.0**(1/12.0))**(key_num-49)*440.0
     stream = instr.play(duration*(60.0/bpm),freq)
     stream *= volume

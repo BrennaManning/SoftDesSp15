@@ -4,7 +4,7 @@ class DNASequence:
         """ constructs a DNASequence with the specified nucleotides.
              nucleotides: the nucleotides represented as a string of
                           capital letters consisting of A's, C's, G's, and T's """
-        pass
+        self.nucleotides = 'nucleotides'
  
     def __str__(self):
         """ Returns a string containing the nucleotides in the DNASequence
@@ -12,7 +12,9 @@ class DNASequence:
         >>> print seq
         TTTGCC
         """
-        pass
+        seq = ''
+        seq = self.nucleotides
+        print seq
 
     def get_reverse_complement(self):
         """ Returns the reverse complement DNA sequence represented
@@ -25,7 +27,9 @@ class DNASequence:
             >>> print type(rev)
             <class '__main__.DNASequence'>
         """
-        pass
+        dna_dict = {'A':'T','T':'A','G':'C','C':'G'}
+
+        print "".join([dna_dict[base] for base in reversed(seq)])
 
     def get_proportion_ACGT(self):
         """ Computes the proportion of nucleotides in the DNA sequence
@@ -40,8 +44,14 @@ class DNASequence:
         >>> print (d['A'], d['C'], d['G'], d['T'])
         (0.4, 0.2, 0.3, 0.1)
         """
-        pass
-
+        
+        n = len('seq')
+        counter = {}
+        for i in seq: counter[i] = counter.get(i, 0) +1
+        list = sorted([((freq/n), nucleotide) for nucleotide, freq in counter.items()], reverse = True)[:n]
+               #sorted([ (freq,word) for word, freq in counter.items() ], reverse=True)[:n]
+        d = dict(list)
+        print d
 if __name__ == '__main__':
     import doctest
     doctest.testmod()

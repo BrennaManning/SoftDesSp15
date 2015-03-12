@@ -25,8 +25,12 @@ def get_json(url):
     Given a properly formatted URL for a JSON web API request, return
     a Python JSON object containing the response to that request.
     """
-    pass
-
+    from pprint import pprint
+    f = urllib2.urlopen(url)
+    response_text = f.read()
+    response_data = json.loads(response_text)
+    pprint(response_data)
+get_json(GMAPS_BASE_URL)
 
 def get_lat_long(place_name):
     """
@@ -57,3 +61,4 @@ def find_stop_near(place_name):
     """
     pass
 
+find_stop_near('Fenway Park')
