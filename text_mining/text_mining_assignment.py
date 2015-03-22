@@ -7,11 +7,12 @@ def sentiment_of_character(filename, character):
 	takes txt file and character as inputs
 	returns sentiment of that character's lines
 	"""
-	fp = open(filename)
+	fp = open(filename) #this file is never closed
 	text =''
 	for line in fp:
 		if line.startswith(character):
 			text = text + line
+	fp.close()
 	return sentiment(text)
 
 def sentiment_towards_character(filename, character):
@@ -19,10 +20,11 @@ def sentiment_towards_character(filename, character):
 	takes txt file and character as inputs
 	returns sentiment of lines mentioning that character
 	"""
+	#Having docstrings is good, but there's no need to include them if your code self-comments
     fp = open(filename)
     text = ''
     for line in fp:
-    	if character in line:
+    	if character in line: #ex: Don't shy from having inline comments
     		text = text + line
     return sentiment(text)
 
