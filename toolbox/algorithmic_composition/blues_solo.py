@@ -43,5 +43,4 @@ for i in range(10):
                     if note[1] < len(blues_scale):
                         add_note(solo, bass, blues_scale[curr_note], note[1], beats_per_minute, 1.0)
 
-
 solo >> "blues_solo.wav"
